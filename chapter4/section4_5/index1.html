@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    /* Создайте функцию-конструктор Calculator, которая создаёт объекты с тремя методами:
+
+    read() запрашивает два значения при помощи prompt и сохраняет их значение в свойствах объекта.
+    sum() возвращает сумму этих свойств.
+    mul() возвращает произведение этих свойств. */
+
+    function Calculator() {
+      this._value1 = 0,
+      this._value2 = 0,
+
+      this.read = () => {
+        let number1 = +prompt('Введите первое число', 3);
+        let number2 = +prompt('Введите первое число', 4);
+
+        if ( !(number1 && number2) ) {
+          alert('Введенные значения не являются числами!!!');
+
+          return;
+        }
+
+        this._value1 = number1;
+        this._value2 = number2;
+      },
+      
+      this.sum = () => {
+        return (this._value1 + this._value2);
+      },
+
+      this.mul = () => {
+        return (this._value1 * this._value2);
+      }
+    }
+
+    let calculator = new Calculator();
+    calculator.read();
+
+    alert( "Sum=" + calculator.sum() );
+    alert( "Mul=" + calculator.mul() );
+  </script>
+</body>
+</html>

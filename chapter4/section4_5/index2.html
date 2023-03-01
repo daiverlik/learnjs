@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    /*Создайте функцию-конструктор Accumulator(startingValue).
+
+    Объект, который она создаёт, должен уметь следующее:
+
+    Хранить «текущее значение» в свойстве value. Начальное значение устанавливается в аргументе конструктора startingValue.
+    Метод read() должен использовать prompt для считывания нового числа и прибавления его к value.
+    Другими словами, свойство value представляет собой сумму всех введённых пользователем значений, с учётом начального значения startingValue. */
+
+    function Accumulator(startingValue) {
+      this.value = startingValue;
+
+      this.read = () => {
+        let number = +prompt('Введите первое число', 4);
+
+        if ( !(number) ) {
+          alert('Введенное значение не является числом!!!');
+
+          return;
+        }
+
+        this.value += number;
+      }
+    }
+
+    let accumulator = new Accumulator(0);
+
+    accumulator.read();
+    accumulator.read();
+
+    alert(accumulator.value);
+  </script>
+</body>
+</html>

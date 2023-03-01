@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // Напишите код, который выводит все простые числа из интервала от 2 до n.
+
+    const minValue = +prompt('Введите значение (число), от которого будет выполняться поиск простых чисел', 2);
+    const maxValue = +prompt('Введите значение (число), до которого будет выполняться поиск простых чисел', 10);
+
+    let flag = false;
+
+
+    if (maxValue >= minValue && minValue >= 2) {
+      const firstValue = (minValue % 2 == 0) ? minValue+1 : minValue;
+
+      if (minValue == 2) alert(minValue);
+
+      for (let i = firstValue; i <= maxValue; i += 2) {
+        const sqrtNumber = Math.ceil(Math.sqrt(i));
+        flag = true;
+        
+        for (let j = 3; j <= sqrtNumber; j += 2) {
+          if (i % j == 0) {
+            flag = false;
+
+            break;
+          }
+        }
+
+        if (flag) alert(i);
+      }
+
+    }
+  </script>
+</body>
+</html>

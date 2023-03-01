@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    /*Напишите функцию sumInput(), которая:
+
+    Просит пользователя ввести значения, используя prompt и сохраняет их в массив.
+    Заканчивает запрашивать значения, когда пользователь введёт не числовое значение, пустую строку или нажмёт «Отмена».
+    Подсчитывает и возвращает сумму элементов массива.
+    P.S. Ноль 0 – считается числом, не останавливайте ввод значений при вводе «0». */
+
+    alert( `Сумма введенный вами элементов = ${ sumInput() }` );
+
+    function sumInput() {
+      let value = 0;
+      let sumElements = 0;
+
+      while (true) {
+        value = readNumber();
+
+        if (value == null) break;
+
+        sumElements += value;
+      }
+
+      return sumElements;
+    }
+
+    function readNumber() {
+      let number = 0;
+
+      do {
+        number = prompt('Введите число', 3);
+      } while ( !isConvertedToNumber(number) );
+
+      if (!number) return null;
+
+      return +number;
+    }
+
+    function isConvertedToNumber(value) {
+      return ( !isNaN(value) && isFinite(value) );
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    /* Создайте функцию readNumber, которая будет запрашивать ввод числового значения до тех пор, пока посетитель его не введёт.
+
+    Функция должна возвращать числовое значение.
+
+    Также надо разрешить пользователю остановить процесс ввода, отправив пустую строку или нажав «Отмена». В этом случае функция должна вернуть null. */
+
+    const readNumber = () => {
+      let number = 0;
+
+      do {
+        number = prompt('Введите число', 3);
+      } while ( !isConvertedToNumber(number) );
+
+      if (!number) return null;
+
+      return +number;
+    }
+
+    function isConvertedToNumber(value) {
+      return ( !isNaN(value) && isFinite(value) );
+    }
+
+    console.log( readNumber() );
+  </script>
+</body>
+</html>
